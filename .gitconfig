@@ -1,0 +1,7 @@
+[user]
+	name = akin.fagbohun
+	email = 16501201+akin-fagbohun@users.noreply.github.com
+[core]
+	excludesfile = /Users/akinfagbohun/.gitignore_global
+[pull]
+  rebase = true
