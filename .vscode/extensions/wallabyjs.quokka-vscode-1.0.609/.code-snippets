@@ -1,0 +1,14 @@
+{
+  "Quokka.js Snap": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["snap"],
+    "body": "{{\n  $TM_SELECTED_TEXT$0\n}}",
+    "description": "Quokka.js Snap"
+  },
+  "Quokka.js Snap With Output": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["snapo"],
+    "body": "{{\n  $TM_SELECTED_TEXT$0\n}}``",
+    "description": "Quokka.js Snap With Output"
+  }
+}

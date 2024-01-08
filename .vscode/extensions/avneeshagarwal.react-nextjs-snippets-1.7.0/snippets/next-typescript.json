@@ -1,0 +1,135 @@
+{
+  "ngsst": {
+    "prefix": "ngsst",
+    "body": [
+      "export const getServerSideProps: GetServerSideProps = async context => {",
+      "  return {",
+      "    props: {},",
+      "  };",
+      "};"
+    ],
+    "description": "Typescript: Next.js get server side props"
+  },
+
+  "ngspt": {
+    "prefix": "ngsp",
+    "body": [
+      "export const getStaticProps: GetStaticProps = async context => {",
+      "  return {",
+      "    props: {},",
+      "  };",
+      "};"
+    ],
+    "description": "TypeScript: Next.js get static props"
+  },
+
+  "npt": {
+    "prefix": "npt",
+    "body": [
+      "import type { NextPage } from \"next\";",
+      "",
+      "const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}: NextPage = () => {",
+      "  return (",
+      "    <>",
+      "    </>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}"
+    ],
+    "description": "Typescript: Next.js page"
+  },
+
+  "ngipt": {
+    "prefix": "ngipt",
+    "body": [
+      "${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}.getInitialProps = async context => {",
+      "  return {",
+      "    ",
+      "  };",
+      "};"
+    ],
+    "description": "TypeScript: Next.js get initial props"
+  },
+
+  "nct": {
+    "prefix": "nct",
+    "body": [
+      "import type { NextComponentType, NextPageContext } from \"next\";",
+      "",
+      "interface Props {}",
+      "",
+      "const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}: NextComponentType<NextPageContext, {}, Props> = (",
+      "  props: Props,",
+      ") => {",
+      "  return (",
+      "    <div></div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}"
+    ],
+    "description": "Typescript: Next.js component"
+  },
+  "ngspat": {
+    "prefix": "ngspat",
+    "body": [
+      "export const getStaticPaths: GetStaticPaths = async () => {",
+      "    return {",
+      "        paths:[${1}],",
+      "        fallback:false",
+      "    }",
+      "}"
+    ],
+    "description": "Typescript: Next.js get static path"
+  },
+  "ncappt": {
+    "prefix": "ncappt",
+    "body": [
+      "const MyApp = ({ Component, pageProps }) => {",
+      "  return <Component {...pageProps} />;",
+      "};",
+      "",
+      "export default MyApp;"
+    ],
+    "description": "Typescript: Next.js custom app"
+  },
+
+  "ncdoct": {
+    "prefix": "ncdoct",
+    "body": [
+      "import Document, { Html, Main, NextScript } from \"next/document\";",
+      "",
+      "const Document: Document = () => {",
+      "  return (",
+      "    <Html lang=\"en\">",
+      "      <body>",
+      "        <Main />",
+      "        <NextScript />",
+      "      </body>",
+      "    </Html>",
+      "  );",
+      "};",
+      "",
+      "export default Document;"
+    ],
+    "description": "Typescript: Next.js custom document"
+  },
+  "ngapit": {
+    "prefix": "ngapit",
+    "body": [
+      "import type { NextApiRequest, NextApiResponse } from \"next\";",
+      "",
+      "type Data = {",
+      "  name: string;",
+      "};",
+      "",
+      "const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {",
+      "  res.status(200).json({ name: \"John Doe\" });",
+      "};",
+      "",
+      "export default handler;"
+    ],
+    "description": "Typescript: Next.js API Route"
+  }
+}

@@ -1,6 +1,8 @@
 # dot-files
 The dotfiles contained within this repository are what is needed to back up and configure my dev environment.
 
+These are safe operations. If the Command Line presents problems with these, slap a `sudo` in front. 
+
 ## Steps to bootstrap a new machine
 1. Install Apple's Command Line Tools in order to be able to install Git and Homebrew.
 ```bash
@@ -26,4 +28,12 @@ brew bundle --file ~/Desktop/dotfiles/Brewfile
 
 # Alternatively
 cd ~/Desktop/.dotfiles && brew bundle
+```
+
+5. Create symlink for `.vscode` once it has been installed.
+```bash
+# First remove the initial .vscode directory
+rm -r ~/.vscode
+# Then install the one from our repository
+ln -s ~/Desktop/.dotfiles/.vscode ~/.vscode
 ```

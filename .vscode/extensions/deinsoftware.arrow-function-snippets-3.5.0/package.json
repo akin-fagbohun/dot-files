@@ -1,0 +1,191 @@
+{
+	"name": "arrow-function-snippets",
+	"description": "VS Code Arrow function snippets for JS and TS",
+	"version": "3.5.0",
+	"displayName": "Arrow Function Snippets",
+	"publisher": "deinsoftware",
+	"icon": "images/light-icon.png",
+	"keywords": [
+		"arrow-function",
+		"destructuring",
+		"snippets",
+		"javascript",
+		"typescript",
+		"react",
+		"vue"
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/deinsoftware/vscode-arrow-snippets"
+	},
+	"sponsor": {
+		"url": "https://github.com/sponsors/deinsoftware"
+	},
+	"engines": {
+		"vscode": "^1.58.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"main": "./build/extension.js",
+	"browser": "./build/extension.js",
+	"extensionKind": [
+		"ui",
+		"workspace"
+	],
+	"activationEvents": [
+		"onCommand:extension.snippetSearch"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./snippets/arrays.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./snippets/arrow.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./snippets/promises.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./snippets/function-js.json"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "./snippets/arrays.json"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "./snippets/arrow.json"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "./snippets/promises.json"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "./snippets/function-js.json"
+			},
+			{
+				"language": "jsx-attr",
+				"path": "./snippets/arrays.json"
+			},
+			{
+				"language": "jsx-attr",
+				"path": "./snippets/arrow.json"
+			},
+			{
+				"language": "jsx-attr",
+				"path": "./snippets/promises.json"
+			},
+			{
+				"language": "jsx-attr",
+				"path": "./snippets/function-js.json"
+			},
+			{
+				"language": "vue",
+				"path": "./snippets/arrays.json"
+			},
+			{
+				"language": "vue",
+				"path": "./snippets/arrow.json"
+			},
+			{
+				"language": "vue",
+				"path": "./snippets/promises.json"
+			},
+			{
+				"language": "vue",
+				"path": "./snippets/function-js.json"
+			},
+			{
+				"language": "typescript",
+				"path": "./snippets/arrays.json"
+			},
+			{
+				"language": "typescript",
+				"path": "./snippets/arrow.json"
+			},
+			{
+				"language": "typescript",
+				"path": "./snippets/promises.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./snippets/function-ts.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./snippets/arrays.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./snippets/arrow.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./snippets/promises.json"
+			},
+			{
+				"language": "tsx-attr",
+				"path": "./snippets/function-ts.json"
+			},
+			{
+				"language": "tsx-attr",
+				"path": "./snippets/arrays.json"
+			},
+			{
+				"language": "tsx-attr",
+				"path": "./snippets/arrow.json"
+			},
+			{
+				"language": "tsx-attr",
+				"path": "./snippets/promises.json"
+			},
+			{
+				"language": "typescript",
+				"path": "./snippets/function-ts.json"
+			},
+			{
+				"language": "json",
+				"path": "./snippets/json.json"
+			},
+			{
+				"language": "jsonc",
+				"path": "./snippets/json.json"
+			},
+			{
+				"language": "json5",
+				"path": "./snippets/json.json"
+			}
+		]
+	},
+	"scripts": {
+		"test": "vitest --run --reporter verbose",
+		"test:w": "vitest",
+		"test:ui": "vitest --ui"
+	},
+	"volta": {
+		"node": "18.14.2",
+		"npm": "9.5.0"
+	},
+	"devDependencies": {
+		"vitest": "0.29.1"
+	},
+	"__metadata": {
+		"id": "6f50db95-089f-41ef-8f27-df5bcea74ef3",
+		"publisherId": "e32ee8bf-0220-4bf3-ad14-a01486935998",
+		"publisherDisplayName": "dein Software",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1684384272917,
+		"preRelease": false
+	}
+}
