@@ -3,5 +3,6 @@
 	email = 16501201+akin-fagbohun@users.noreply.github.com
 [core]
 	excludesfile = /Users/akinfagbohun/.gitignore_global
+	editor = code --wait
 [pull]
   rebase = true
