@@ -1,7 +1,7 @@
 # dot-files
 The dotfiles contained within this repository are what is needed to back up and configure my dev environment.
 
-## Steps to boostrap a new machine
+## Steps to bootstrap a new machine
 1. Install Apple's Command Line Tools in order to be able to install Git and Homebrew.
 ```bash
 xcode-select --install
