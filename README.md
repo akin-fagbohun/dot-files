@@ -17,9 +17,9 @@ git clone https://github.com/akin-fagbohun/dot-files.git ~/Desktop/.dotfiles
 
 3. Create symlinks between the `.gitconfig/.zshrc` in the repo to those in the Home directory.
 ```bash
-# Run this command
-ln -s ~/Desktop/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/Desktop/.dotfiles/.gitconfig ~/.gitconfig
+# Run this command to remove the respective file an replace with our own
+rm ~/.zshrc && ln -s ~/Desktop/.dotfiles/.zshrc ~/.zshrc
+rm ~/.gitconfig && ln -s ~/Desktop/.dotfiles/.gitconfig ~/.gitconfig
 ```
 
 4. Install Homebrew from Safari then run the following command.
@@ -30,10 +30,8 @@ brew bundle --file ~/Desktop/dotfiles/Brewfile
 cd ~/Desktop/.dotfiles && brew bundle
 ```
 
-5. Create symlink for `.vscode` once it has been installed.
+5. Create symlink for our `.vscode` extensions once it has been installed.
 ```bash
-# First remove the initial .vscode directory
-rm -r ~/.vscode
-# Then install the one from our repository
-ln -s ~/Desktop/.dotfiles/.vscode ~/.vscode
+# Replace the vscode extensions.json with our own.
+rm ~/.vscode/extensions/extensions.json && ln -s ~/Desktop/.dotfiles/extensions.json ~/.vscode/extensions
 ```
