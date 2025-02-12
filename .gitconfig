@@ -1,8 +1,13 @@
 [user]
 	name = akin.fagbohun
-	email = 16501201+akin-fagbohun@users.noreply.github.com
+	email = akin.fagbohun@lush.co.uk
 [core]
-	excludesfile = /Users/akinfagbohun/.gitignore_global
+	excludesfile = .gitignore
 	editor = code --wait
 [pull]
   rebase = true
+[rerere]
+	enabled = true
+
+[includeIf "gitdir:~/Documents/Personal/"]
+    path = ~/.gitconfig-personal

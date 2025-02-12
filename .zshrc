@@ -113,3 +113,20 @@ alias gc="git commit"
 alias gcm="git commit -m"
 alias gp="git push"
 alias gpu="git push -u origin"
+
+# Function
+
+makegif() {
+    input="$1"
+    output="${input%.*}.gif"
+    temp_palette="/tmp/palette.png"
+
+    # Step 1: Generate a high-quality color palette with more precise settings
+    ffmpeg -i ~/Downloads/"$input" -vf "fps=15,scale=1080:-1:flags=lanczos,palettegen=max_colors=256" -y $temp_palette
+
+    # Step 2: Apply the palette and use dithering with more fine-tuned settings
+    ffmpeg -i ~/Downloads/"$input" -i $temp_palette -lavfi "fps=15,scale=1080:-1:flags=lanczos [x]; [x][1:v] paletteuse=dither=sierra2_4a" -y ~/Downloads/"$output"
+
+    # Clean up the temporary palette file
+    rm $temp_palette
+}
