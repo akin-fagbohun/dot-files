@@ -1,7 +1,6 @@
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -43,7 +42,12 @@ grs() {
     git reset --soft HEAD~"$1"
 }
 
-# turn a .mov video into a gif
+# Same as above but will unstage all files that are soft reset
+grsu() {
+    git reset --soft HEAD~"$1" && git reset
+}
+
+# turn a .mov video into a gif - requires ffmpeg
 makegif() {
     input="$1"
     output="${input%.*}.gif"
