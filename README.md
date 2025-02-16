@@ -19,12 +19,7 @@ xcode-select --install
 git clone https://github.com/akin-fagbohun/dot-files.git ~/Documents/Personal/.dotfiles
 ```
 
-4. Create a symlink between the `.dotfiles/.zshrc` in the repo and `.zshrc` in the Home directory. Doing this will allow you to easily commit your changes to your remote repository.
-```bash
-ln -s ~/Documents/Personal/.dotfiles/.zshrc ~/.zshrc
-```
-
-5. Install Homebrew from Safari then run the following command.
+4. Install Homebrew from Safari then run the following command.
 ```bash
 brew bundle --file ~/Documents/Personal/dotfiles/Brewfile
 ```
@@ -32,6 +27,26 @@ brew bundle --file ~/Documents/Personal/dotfiles/Brewfile
 Alternatively
 ```bash
 cd ~/Documents/Personal/.dotfiles && brew bundle
+```
+
+5. Create a symlink between the `.dotfiles/.zshrc` in the repo and `.zshrc` in the Home directory. Doing this will allow you to easily commit your changes to your remote repository.
+```bash
+ln -s ~/Documents/Personal/.dotfiles/.zshrc ~/.zshrc
+```
+
+6. Create a symlink between `ghosttyConfig` in the repo and Ghostty's local config file. Doing this will allow you to easily backup your Ghostty config to your remote repository.
+- If you've never launched `Ghostty`;
+```bash
+ln -s ~/Documents/Personal/.dotfiles/ghosttyConfig "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+```
+
+- If you already have some custom `Ghostty` config, integrate what you want to keep into `~/.dotfiles/ghosttyConfig`
+
+- If you've launched `Ghostty` but are happy to replace your existing config;
+```bash
+rm -f "$HOME/Library/Application Support/com.mitchellh.ghostty/config" &&
+
+ln -s ~/Documents/Personal/.dotfiles/ghosttyConfig "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
 ```
 
 ## Ghostty <> VS Code
