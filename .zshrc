@@ -62,3 +62,6 @@ makegif() {
     # Clean up the temporary palette file
     rm $temp_palette
 }
+
+# Zoxide - must be at the end of file
+eval "$(zoxide init zsh --cmd cd)"
