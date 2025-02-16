@@ -1,37 +1,35 @@
 # dot-files
-The dotfiles contained within this repository are what is needed to back up and configure my dev environment.
+The dotfiles contained within this repository are what I use to bootstrap my dev environment.
 
 These are safe operations. If the Command Line presents problems with these, slap a `sudo` in front. 
 
 ## Steps to bootstrap a new machine
-1. Install Apple's Command Line Tools in order to be able to install Git and Homebrew.
+1. Use the default Terminal to install Apple's Command Line Tools. We'll need this in order to install `Git` and `Homebrew`.
 ```bash
 xcode-select --install
 ```
 
-2. Clone this repo to as hidden directory at called `.dotfiles`. This can be in the `/Desktop` folder for example, but we will will need to create a symlink to the `.gitconfig` and `.zshrc` that is in the Home directory once cloned. See `3)`.
+2. Configure SSH
+[Gitlab Docs](https://docs.gitlab.com/ee/user/ssh.html)
+[Github Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+
+3. Fork this project and Clone the repo to a hidden directory at called `.dotfiles`. This can be anywhere. I recommend `~/Documents/Personal/`. We will later create a symlink to the `.gitconfig` and `.zshrc` in the Home directory.
+
 ```bash
-# Paste whole command
 git clone https://github.com/akin-fagbohun/dot-files.git ~/Documents/Personal/.dotfiles
 ```
 
-3. Create symlinks between the `.gitconfig/.zshrc` in the repo to those in the Home directory.
+4. Create a symlinks between the `.dotfiles/.zshrc` in the repo and `.zshrc` in the Home directory. Doing this will allow you to easily commit your changes to your remote repository.
 ```bash
-# Run this command to remove the respective file an replace with our own
 ln -s ~/Documents/Personal/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/Documents/Personal/.dotfiles/.gitconfig ~/.gitconfig
 ```
 
-4. Install Homebrew from Safari then run the following command.
+5. Install Homebrew from Safari then run the following command.
 ```bash
 brew bundle --file ~/Documents/Personal/dotfiles/Brewfile
-
-# Alternatively
-cd ~/Documents/Personal/.dotfiles && brew bundle
 ```
 
-5. Create symlink for our `.vscode` extensions once it has been installed.
+Alternatively
 ```bash
-# Replace the vscode extensions.json with our own.
-rm ~/.vscode/extensions/extensions.json && ln -s ~/Documents/Personal/.dotfiles/extensions.json ~/.vscode/extensions
+cd ~/Documents/Personal/.dotfiles && brew bundle
 ```
