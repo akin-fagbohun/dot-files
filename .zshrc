@@ -35,10 +35,15 @@ alias gc="git commit"
 alias gcm="git commit -m"
 alias gp="git push"
 alias gpu="git push -u origin"
-alias grs="git reset --soft HEAD~"
 alias groh="git reset ORIG_HEAD"
 
 # Function
+# alias function for "grs" - e.g. "grs 2" === "git reset --soft HEAD~2"
+grs() {
+    git reset --soft HEAD~"$1"
+}
+
+# turn a .mov video into a gif
 makegif() {
     input="$1"
     output="${input%.*}.gif"
