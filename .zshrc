@@ -33,7 +33,7 @@ alias ga="git add ."
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gp="git push"
-alias gpu="git push -u origin"
+alias gpu="git push origin HEAD -u"
 alias groh="git reset ORIG_HEAD"
 
 # Function
