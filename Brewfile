@@ -1,6 +1,8 @@
 tap "homebrew/bundle"
 brew "git"
 brew "zsh"
+brew "pure"
+brew "ffmpeg"
 cask "ghostty"
 cask "visual-studio-code"
 cask "google-chrome"
