@@ -36,7 +36,24 @@ alias gp="git push"
 alias gpu="git push origin HEAD -u"
 alias groh="git reset ORIG_HEAD"
 
+alias nrd="npm run dev" 
+
 # Function
+# commit with refactor message
+gcmr() {
+    git commit -m "refactor: $1"
+}
+
+# commit with chore message
+gcmc() {
+    git commit -m "chore: $1"
+}
+
+# commit with feature message
+gcmf() {
+    git commit -m "feature: $1"
+}
+
 # alias function for "grs" - e.g. "grs 2" === "git reset --soft HEAD~2"
 grs() {
     git reset --soft HEAD~"$1"
