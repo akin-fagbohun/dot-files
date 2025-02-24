@@ -80,5 +80,22 @@ makegif() {
     rm $temp_palette
 }
 
+# optimise an image for web
+optimiseimg() {
+    input="$1"
+    output="${input%.*}_optimized.jpeg"  # Change extension to .jpg for JPEG output
+    quality="75"  # Adjust quality (1-100, lower = smaller file size but lower quality)
+    max_width="1800"  # Maximum width for resizing (set to -1 to disable resizing)
+
+    # Optimize the image
+    ffmpeg -i ~/Downloads/"$input" \
+           -vf "scale=$max_width:-1" \
+           -q:v $quality \
+           -compression_level 6 \
+           ~/Downloads/"$output"
+
+    echo "Optimized image saved as ~/Downloads/$output"
+}
+
 # Zoxide - must be at the end of file
 eval "$(zoxide init zsh --cmd cd)"
