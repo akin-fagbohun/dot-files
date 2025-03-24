@@ -12,6 +12,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Configure editor
+export EDITOR="code --wait"
+
 # ZSH bindings
 # Make history searches case-insensitive
 setopt HIST_IGNORE_ALL_DUPS
@@ -38,7 +41,25 @@ alias groh="git reset ORIG_HEAD"
 
 alias nrd="npm run dev" 
 
-# Function
+# Functions
+# Server helpers
+# return server running on port: number
+port() {
+    lsof -i :$1
+}
+
+# kill the node server under the supplied port number
+killport() {
+    PID=$(lsof -i :$1 | grep 'node' | awk '{print $2}')
+    if [ -z "$PID" ]; then
+        echo "No process found running on port $1."
+    else
+        kill -9 $PID
+        echo "Killed process $PID running on port $1."
+    fi
+}
+
+# Git helpers
 # commit with refactor message
 gcmr() {
     git commit -m "refactor: $1"
@@ -62,6 +83,11 @@ grs() {
 # Same as above but will unstage all files that are soft reset
 grsu() {
     git reset --soft HEAD~"$1" && git reset
+}
+
+# find keyword in git history
+gitsearch() {
+    git log -S"$1"
 }
 
 # turn a .mov video into a gif - requires ffmpeg
@@ -97,5 +123,54 @@ optimiseimg() {
     echo "Optimized image saved as ~/Downloads/$output"
 }
 
+# Repair corrupted SOPS file
+# essentially, decrypts and re-encrypts sops file when encountering a MAC merge conflict
+sopsrepair() {
+    # Check if exactly two parameters are passed
+    if [ "$#" -ne 2 ]; then
+        echo "Error: This function requires exactly two parameters."
+        echo "Usage: sopsrepair <encrypted_file.yaml> <gcp-kms-value>"
+        return 1
+    fi
+
+    # Check if the first parameter ends with '.yaml'
+    if [[ "$1" != *.yaml ]]; then
+        echo "Error: The first parameter should be a '.yaml' file. The second parameter should be the GCP-KMS value."
+        return 1
+    fi
+
+    enc_file="$1"
+    gcp_kms="$2"
+
+    # Step 1: Decrypt the encrypted file and store its data in a new temporary file
+    if ! sops -d --ignore-mac "$enc_file" > temp.gcp.enc.yaml; then
+        echo "Error: Failed to decrypt the file '$enc_file'."
+        return 1
+    fi
+
+    # Step 2: Encrypt the temporary file using the GCP-KMS value
+    if ! sops -e --in-place --gcp-kms "$gcp_kms" temp.gcp.enc.yaml; then
+        echo "Error: Failed to encrypt the temporary file with GCP-KMS."
+        rm -f temp.gcp.enc.yaml  # Clean up the temporary file
+        return 1
+    fi
+
+    # Step 3: Delete the original conflicted file
+    if ! rm "$enc_file"; then
+        echo "Error: Failed to delete the original file '$enc_file'."
+        rm -f temp.gcp.enc.yaml  # Clean up the temporary file
+        return 1
+    fi
+
+    # Step 4: Rename the temp file to be the originally conflicted file
+    if ! mv temp.gcp.enc.yaml "$enc_file"; then
+        echo "Error: Failed to rename the temporary file to '$enc_file'."
+        return 1
+    fi
+
+    echo "File '$enc_file' successfully repaired."
+}
+
 # Zoxide - must be at the end of file
-eval "$(zoxide init zsh --cmd cd)"
+eval "$(zoxide init zsh --cmd cd)"export EDITOR=code --wait
+
